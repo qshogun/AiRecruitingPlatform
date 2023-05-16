@@ -15,3 +15,10 @@ services:
       - "8080:80"
     depends_on:
       - ai-recruiting-platform-api
+
+  ai-recruiting-platform-tests:
+    build:
+      context: ./AiRecruitingPlatform.Tests
+      dockerfile: Dockerfile
+    depends_on:
+      - ai-recruiting-platform-api
