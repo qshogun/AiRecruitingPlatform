@@ -10,10 +10,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["AiRecruitingPlatform.Api/AiRecruitingPlatform.Api.csproj", "AiRecruitingPlatform.Api/"]
-RUN dotnet restore "AiRecruitingPlatform.Api/AiRecruitingPlatform.Api.csproj"
+COPY ["AiRecruitingPlatform.Api.csproj", ""]
+RUN dotnet restore "AiRecruitingPlatform.Api.csproj"
 COPY . .
-WORKDIR "/src/AiRecruitingPlatform.Api"
+WORKDIR "/src"
 RUN dotnet build "AiRecruitingPlatform.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
